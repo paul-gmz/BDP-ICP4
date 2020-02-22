@@ -39,11 +39,11 @@ select movieId, rating from ratingdb.rating where rating == '5.0' limit 20;
 
 3_4
 
-select m.title, m.genres, r.rating from moviedb.movie as m join ratingdb.rating as r on m.movieId = r.movieId where array_contains(genres, 'Action') and r.rating > 3.5 order by r.rating desc limit 20;
+select m.title, m.genres, r.rating from moviedb.movie as m join ratingdb.rating as r on m.movieId = r.movieId where array_contains(genres, 'Action') and r.rating > 2.5 order by r.rating desc limit 11;
 
 Bonus
 
-select m.title, m.genres, r.rating, u.gender from moviedb.movie as m join ratingdb.rating as r on m.movieId = r.movieId join userdb.user as u on r.userId= u.userId where (array_contains(m.genres, "Action") and array_contains(m.genres, "Drama")) and (r.rating > 4.4 and r.rating < 4.9) and u.gender = 'M';
+select m.title, m.genres, r.rating, u.gender from moviedb.movie as m join ratingdb.rating as r on m.movieId = r.movieId join userdb.user as u on r.userId= u.userId where (array_contains(m.genres, "Action") or array_contains(m.genres, "Drama")) and (r.rating > 4.4 and r.rating < 4.9) and u.gender = 'M';
 
 
 
